@@ -5,22 +5,46 @@
     <title>Jackson Electronics - Registration Form</title>
     <style>
         body {
-            background-color: #9ac2ff;
+            background-color: #ffffff;
             font-family: "Times New Roman", Times, serif;
             color: #000;
             margin: 0;
             padding: 20px;
+            display: flex;
+            justify-content: center;
         }
 
+        /* Khung form chính giữa */
+        .form-container {
+            background-color: #9ac2ff;
+            width: 580px;
+            padding: 25px 30px;
+            box-sizing: border-box;
+        }
+
+        /* Khung Logo */
         .logo-box {
             background-color: #00ffff;
             border: 2px solid #000;
+            border-radius: 10px;
             box-shadow: 4px 4px 0px #666;
             text-align: center;
-            padding: 5px 20px;
+            padding: 4px 15px;
             font-weight: bold;
             font-size: 24px;
             width: 300px;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        /* Tia sét góc trên logo */
+        .lightning-bolt {
+            position: absolute;
+            top: 2px;
+            left: 18px;
+            width: 42px;
+            height: 32px;
+            overflow: visible;
         }
 
         .logo-line {
@@ -30,181 +54,252 @@
 
         h1 {
             font-family: "Times New Roman", Times, serif;
-            font-size: 28px;
-            margin: 15px 0 5px 0;
+            font-size: 26px;
+            margin: 18px 0 6px 0;
             text-align: center;
+            font-weight: bold;
         }
 
         p.subtitle {
             text-align: center;
-            font-size: 15px;
-            margin: 0 0 15px 0;
+            font-size: 14px;
+            margin: 0 0 18px 0;
         }
 
+        /* Định dạng các ô nhập liệu */
         input[type="text"], select, textarea {
             border: 1px solid #7f9db9;
             background-color: #ffffff;
             font-family: Arial, sans-serif;
             font-size: 13px;
-            padding: 2px;
+            padding: 2px 4px;
+            box-sizing: border-box;
+            height: 22px;
         }
 
-        input[type="button"], input[type="submit"], input[type="reset"] {
+        textarea {
+            height: auto;
+        }
+
+        /* Bảng form chính - căn chỉnh khoảng cách giữa các hàng */
+        .form-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 6px;
+        }
+
+        .form-table td.label-col {
+            font-size: 14px;
+            vertical-align: middle;
+            padding-right: 10px;
+            white-space: nowrap;
+        }
+
+        /* Định dạng đường kẻ phân cách hr */
+        .divider {
+            border: 0;
+            border-top: 1px solid #708090;
+            margin: 8px 0;
+        }
+
+        /* Các nút bấm ở cuối form */
+        .button-container {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        input[type="submit"], input[type="reset"] {
             font-family: Arial, sans-serif;
             font-size: 12px;
-            background-color: #e0e0e0;
+            background-color: #ffffff;
+            color: #000000;
             border: 2px outset #ffffff;
-            padding: 2px 8px;
+            padding: 3px 10px;
             cursor: pointer;
+            box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            margin: 0 4px;
         }
 
-        input[type="button"]:active {
+        input[type="submit"]:hover, input[type="reset"]:hover {
+            background-color: #f0f0f0;
+        }
+
+        input[type="submit"]:active, input[type="reset"]:active {
             border-style: inset;
         }
 
-        hr {
-            border: 0;
-            border-top: 1px solid #666;
-            margin: 10px 0;
+        /* Cấu hình Radio Buttons */
+        input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 13px;
+            height: 13px;
+            border: 2px solid #4CAF50;
+            border-radius: 50%;
+            outline: none;
+            background-color: #ffffff;
+            cursor: pointer;
+            vertical-align: middle;
+            margin: 0 5px 0 0;
+            display: inline-grid;
+            place-content: center;
+        }
+
+        input[type="radio"]::before {
+            content: "";
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: #4CAF50;
+            transform: scale(0);
+            transition: transform 0.1s ease-in-out;
+        }
+
+        input[type="radio"]:checked::before {
+            transform: scale(1);
+        }
+
+        .options-table {
+            border-collapse: separate;
+            border-spacing: 0 4px;
+        }
+
+        .options-table label {
+            font-size: 13px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <table border="0" align="center" cellpadding="0" cellspacing="0" width="600">
-        <tr>
-            <td align="center">
-                <table border="0" cellpadding="0" cellspacing="0" class="logo-box">
-                    <tr>
-                        <td align="center">
-                            Jackson
-                            <div class="logo-line"></div>
-                            Electronics
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td align="center">
-                <h1>Registration Form</h1>
-                <p class="subtitle">Register your Jackson Electronics product here</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <form action="#" method="post">
-                    <table border="0" cellpadding="3" cellspacing="0" width="100%">
-                        <tr>
-                            <td width="120" align="left">First Name:</td>
-                            <td>
-                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                    <tr>
-                                        <td><input type="text" name="firstName" style="width: 140px;"></td>
-                                        <td align="right" width="80">Last Name:</td>
-                                        <td align="right" width="110"><input type="text" name="lastName" style="width: 100px;"></td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Address #1:</td>
-                            <td><input type="text" name="address1" style="width: 250px;"></td>
-                        </tr>
-                        <tr>
-                            <td>Address #2:</td>
-                            <td><input type="text" name="address2" style="width: 250px;"></td>
-                        </tr>
-                        <tr>
-                            <td>City:</td>
-                            <td>
-                                <table border="0" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td><input type="text" name="city" style="width: 170px;"></td>
-                                        <td style="padding-left: 10px;">State:</td>
-                                        <td style="padding-left: 5px;"><input type="text" name="state" style="width: 40px;"></td>
-                                        <td style="padding-left: 10px;">Zip:</td>
-                                        <td style="padding-left: 5px;"><input type="text" name="zip" style="width: 70px;"></td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Country:</td>
-                            <td><input type="text" name="country" value="United States" style="width: 170px;"></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><hr></td>
-                        </tr>
-                        <tr>
-                            <td>Product:</td>
-                            <td>
-                                <select name="product" style="width: 130px;">
-                                    <option value="ScanMaster">ScanMaster</option>
-                                    <option value="LaserPrinter">LaserPrinter</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Date Purchased:</td>
-                            <td><input type="text" name="datePurchased" style="width: 170px;"></td>
-                        </tr>
-                        <tr>
-                            <td>Serial #:</td>
-                            <td><input type="text" name="serialNumber" style="width: 170px;"></td>
-                        </tr>
-                        <tr>
-                            <td valign="top">Used for:</td>
-                            <td>
-                                <table border="0" cellpadding="1" cellspacing="0">
-                                    <tr>
-                                        <td width="160"><label><input type="radio" name="usedFor" value="Home"> Home</label></td>
-                                        <td><label><input type="radio" name="usedFor" value="Educational Institution"> Educational Institution</label></td>
-                                    </tr>
-                                    <tr>
-                                        <td><label><input type="radio" name="usedFor" value="Business" checked> Business</label></td>
-                                        <td><label><input type="radio" name="usedFor" value="Other"> Other</label></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2"><label><input type="radio" name="usedFor" value="Government"> Government</label></td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td valign="top">System (check all that apply):</td>
-                            <td>
-                                <table border="0" cellpadding="1" cellspacing="0">
-                                    <tr>
-                                        <td width="160"><label><input type="checkbox" name="system" value="Windows"> Windows</label></td>
-                                        <td><label><input type="checkbox" name="system" value="UNIX"> UNIX</label></td>
-                                    </tr>
-                                    <tr>
-                                        <td><label><input type="checkbox" name="system" value="Macintosh"> Macintosh</label></td>
-                                        <td><label><input type="checkbox" name="system" value="Other"> Other</label></td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><hr></td>
-                        </tr>
-                        <tr>
-                            <td valign="top">Comments?:</td>
-                            <td>
-                                <textarea name="comments" rows="5" style="width: 100%; box-sizing: border-box;"></textarea>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" align="center" style="padding-top: 15px;">
-                                <input type="submit" value="Click to register">
-                                &nbsp;&nbsp;
-                                <input type="reset" value="Click to cancel">
-                            </td>
-                        </tr>
-                    </table>
-                </form>
-            </td>
-        </tr>
-    </table>
+    <div class="form-container">
+        <!-- Logo Jackson Electronics -->
+        <div class="logo-box">
+            <svg class="lightning-bolt" viewBox="0 0 50 35">
+                <polygon points="20,1 12,12 18,12 10,21 16,21 11,29 23,29 17,19 22,19 16,10 24,10" fill="#000000"/>
+                <path d="M 23 29 L 29 17" stroke="#000000" stroke-width="2.2" stroke-linecap="round" />
+                <path d="M 23 29 L 34 22" stroke="#000000" stroke-width="2" stroke-linecap="round" />
+                <path d="M 23 29 L 31 28" stroke="#000000" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+            Jackson
+            <div class="logo-line"></div>
+            Electronics
+        </div>
+
+        <h1>Registration Form</h1>
+        <p class="subtitle">Register your Jackson Electronics product here</p>
+
+        <form action="#" method="post">
+            <table class="form-table" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td class="label-col" width="130">First Name:</td>
+                    <td>
+                        <!-- Đã bỏ khoảng cách giữa ô First Name và chữ Last Name -->
+                        <div style="display: flex; align-items: center;">
+                            <input type="text" name="firstName" style="width: 135px;">
+                            <span style="font-size: 14px; margin-left: 2px; margin-right: 2px; white-space: nowrap;">Last Name:</span>
+                            <input type="text" name="lastName" style="width: 120px;">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label-col">Address #1:</td>
+                    <td><input type="text" name="address1" style="width: 235px;"></td>
+                </tr>
+                <tr>
+                    <td class="label-col">Address #2:</td>
+                    <td><input type="text" name="address2" style="width: 235px;"></td>
+                </tr>
+                <tr>
+                    <td class="label-col">City:</td>
+                    <td>
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td><input type="text" name="city" style="width: 165px;"></td>
+                                <td style="padding-left: 12px; padding-right: 6px; font-size: 14px;">State:</td>
+                                <td><input type="text" name="state" style="width: 42px;"></td>
+                                <td style="padding-left: 12px; padding-right: 6px; font-size: 14px;">Zip:</td>
+                                <td><input type="text" name="zip" style="width: 80px;"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label-col">Country:</td>
+                    <td><input type="text" name="country" value="United States" style="width: 165px;"></td>
+                </tr>
+                
+                <tr>
+                    <td colspan="2"><div class="divider"></div></td>
+                </tr>
+
+                <tr>
+                    <td class="label-col">Product:</td>
+                    <td>
+                        <select name="product" style="width: 135px; height: 22px;">
+                            <option value="ScanMaster">ScanMaster</option>
+                            <option value="LaserPrinter">LaserPrinter</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label-col">Date Purchased:</td>
+                    <td><input type="text" name="datePurchased" style="width: 165px;"></td>
+                </tr>
+                <tr>
+                    <td class="label-col">Serial #:</td>
+                    <td><input type="text" name="serialNumber" style="width: 165px;"></td>
+                </tr>
+                <tr>
+                    <td class="label-col" valign="top" style="padding-top: 4px;">Used for:</td>
+                    <td>
+                        <table class="options-table" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td width="160"><label><input type="radio" name="usedFor" value="Home"> Home</label></td>
+                                <td><label><input type="radio" name="usedFor" value="Educational Institution"> Educational Institution</label></td>
+                            </tr>
+                            <tr>
+                                <td><label><input type="radio" name="usedFor" value="Business" checked> Business</label></td>
+                                <td><label><input type="radio" name="usedFor" value="Other"> Other</label></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><label><input type="radio" name="usedFor" value="Government"> Government</label></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label-col" valign="top" style="padding-top: 4px;">System (check all that apply):</td>
+                    <td>
+                        <table class="options-table" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td width="160"><label><input type="checkbox" name="system" value="Windows" style="margin-right: 6px;"> Windows</label></td>
+                                <td><label><input type="checkbox" name="system" value="UNIX" style="margin-right: 6px;"> UNIX</label></td>
+                            </tr>
+                            <tr>
+                                <td><label><input type="checkbox" name="system" value="Macintosh" style="margin-right: 6px;"> Macintosh</label></td>
+                                <td><label><input type="checkbox" name="system" value="Other" style="margin-right: 6px;"> Other</label></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><div class="divider"></div></td>
+                </tr>
+
+                <tr>
+                    <td class="label-col" valign="top" style="padding-top: 4px;">Comments?:</td>
+                    <td>
+                        <textarea name="comments" rows="6" style="width: 100%; min-height: 100px;"></textarea>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="button-container">
+                <input type="submit" value="Click to register">
+                <input type="reset" value="Click to cancel">
+            </div>
+        </form>
+    </div>
 </body>
 </html>
